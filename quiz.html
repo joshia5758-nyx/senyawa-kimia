@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quiz - Senyawa Kimia</title>
+<style>
+:root{--cream:#fbf7f3;--ink:#202a35;--blue:#183b60;--yellow:#ffe65a;--muted:#687384}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Segoe UI",Arial,sans-serif;background:var(--cream);color:var(--ink);min-height:100vh}
+header{width:min(1160px,92%);margin:auto;padding:22px 0;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{font-size:1.15rem;font-weight:900;color:var(--ink);text-decoration:none;letter-spacing:-.5px}
+.brand span{margin-right:8px}
+nav{display:flex;gap:25px;flex-wrap:wrap}
+nav a{color:#526071;text-decoration:none;font-size:.92rem;font-weight:700;transition:.2s}
+nav a:hover,nav a.active{color:#dba600}
+main{width:min(900px,92%);margin:0 auto;padding:30px 0 75px}
+.intro{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:28px}
+.eyebrow{display:inline-block;background:var(--yellow);border:2px solid var(--ink);border-radius:999px;padding:7px 17px;box-shadow:3px 3px 0 var(--ink);font-size:.72rem;font-weight:900;margin-bottom:17px}
+h1{font-size:clamp(2.1rem,4vw,3.1rem);line-height:1.1;letter-spacing:-1.6px;color:var(--blue);font-weight:950}
+h1 span{color:#ffdf35;-webkit-text-stroke:1px var(--ink);text-shadow:2px 3px 0 var(--ink)}
+.intro p{max-width:620px;color:var(--muted);font-size:.96rem;line-height:1.8;margin-top:14px}
+.stamp{width:104px;height:104px;flex:0 0 104px;border:2px solid var(--ink);border-radius:50%;display:grid;place-items:center;background:#fff;box-shadow:4px 5px 0 var(--ink);font-size:2.6rem;transform:rotate(8deg)}
+.quiz-card{background:#fff;border:2px solid var(--ink);border-radius:19px;padding:21px 23px;margin-bottom:17px;box-shadow:3px 4px 0 var(--ink)}
+.quiz-card h2{font-size:1.08rem;line-height:1.5;color:var(--blue);margin-bottom:12px}
+input{display:block;width:100%;padding:12px 14px;margin:8px 0 12px;border:1.5px solid #cbd1d8;border-radius:11px;background:#fbfaf8;color:var(--ink);font:inherit;outline:none}
+input:focus{border-color:#d6ad21;box-shadow:0 0 0 3px #ffe65a55}
+button{background:var(--yellow);color:var(--ink);border:2px solid var(--ink);padding:10px 18px;border-radius:999px;cursor:pointer;font-weight:850;font-size:.86rem;box-shadow:2px 3px 0 var(--ink);transition:.18s}
+button:hover{transform:translateY(-2px);box-shadow:3px 4px 0 var(--ink)}
+button:active{transform:translateY(0);box-shadow:1px 1px 0 var(--ink)}
+.quiz-card p{margin-top:11px;font-size:.88rem;min-height:1.2em}
+.correct{color:#16845c;font-weight:800}
+.incorrect{color:#d64a43;font-weight:800}
+.score-box{margin-top:25px;padding:25px;text-align:center;background:#fff6c9;border:2px solid var(--ink);border-radius:20px;box-shadow:4px 5px 0 var(--ink)}
+.score-box button{padding:12px 24px}
+.score-box h2{margin:15px 0 0;color:var(--blue);font-size:1.25rem}
+@media(max-width:720px){header{align-items:flex-start;flex-direction:column;padding:20px 0 10px}nav{gap:12px 19px}.intro{align-items:flex-start}.stamp{display:none}main{padding-top:23px}}
+@media(max-width:480px){.quiz-card{padding:18px}.quiz-card h2{font-size:1rem}.intro p{font-size:.92rem}}
+</style>
+</head>
+<body>
+<header>
+  <a class="brand" href="Beranda.html"><span>🧪</span>Senyawa Kimia</a>
+  <nav aria-label="Navigasi utama">
+    <a href="Beranda.html">Beranda</a>
+    <a href="Jenis.html">Jenis</a>
+    <a href="sifat.html">Sifat</a>
+    <a href="revisicontoh.html">Contoh</a>
+    <a class="active" href="quiz.html">Quiz</a>
+  </nav>
+</header>
+<main>
+  <section class="intro">
+    <div>
+      <span class="eyebrow">UJI PEMAHAMANMU</span>
+      <h1>Seberapa kenal kamu<br>dengan <span>senyawa kimia?</span></h1>
+      <p>Jawab 15 pertanyaan berikut untuk menguji pemahamanmu. Isi jawaban, tekan tombol Check, lalu lihat hasil akhirmu!</p>
+    </div>
+    <div class="stamp" aria-hidden="true">📝</div>
+  </section>
+<div class="quiz-card">
+    <h2>1️⃣ Apa rumus kimia air?</h2>
+    <input type="text" id="q1" placeholder="Masukkan jawaban">
+    <button onclick="checkAnswer(1, 'H2O')">Check</button>
+    <p id="result1"></p>
+</div>
+
+<div class="quiz-card">
+    <h2>2️⃣ Ikatan pada NaCl termasuk jenis apa?</h2>
+    <input type="text" id="q2" placeholder="Masukkan jawaban">
+    <button onclick="checkAnswer(2, 'ionik')">Check</button>
+    <p id="result2"></p>
+</div>
+
+<div class="quiz-card">
+    <h2>3️⃣ Sebutkan contoh senyawa kovalen!</h2>
+    <input type="text" id="q3" placeholder="Contoh: H2O">
+    <button onclick="checkAnswer(3, 'h2o')">Check</button>
+    <p id="result3"></p>
+</div>
+
+<div class="quiz-card">
+    <h2>4️⃣ Senyawa yang menghasilkan ion H⁺ disebut?</h2>
+    <input type="text" id="q4" placeholder="Masukkan jawaban">
+    <button onclick="checkAnswer(4, 'asam')">Check</button>
+    <p id="result4"></p>
+</div>
+
+<div class="quiz-card">
+    <h2>5️⃣ Senyawa yang mengandung unsur karbon disebut?</h2>
+    <input type="text" id="q5" placeholder="Masukkan jawaban">
+    <button onclick="checkAnswer(5, 'organik')">Check</button>
+    <p id="result5"></p>
+</div>
+
+<div class="quiz-card">
+    <h2>6️⃣ Apa rumus kimia karbon dioksida?</h2>
+    <input type="text" id="q6" placeholder="Masukkan jawaban">
+    <button onclick="checkAnswer(6, 'CO2')">Check</button>
+    <p id="result6"></p>
+</div>
+
+<div class="quiz-card">
+    <h2>7️⃣ Ikatan dalam H2O termasuk jenis apa?</h2>
+    <input type="text" id="q7" placeholder="Masukkan jawaban">
+    <button onclick="checkAnswer(7, 'kovalen')">Check</button>
+    <p id="result7"></p>
+</div>
+
+<div class="quiz-card">
+    <h2>8️⃣ Apa nama senyawa NaOH?</h2>
+    <input type="text" id="q8" placeholder="Masukkan jawaban">
+    <button onclick="checkAnswer(8, 'Natrium hidroksida')">Check</button>
+    <p id="result8"></p>
+</div>
+
+<div class="quiz-card">
+    <h2>9️⃣ Senyawa yang menghasilkan OH⁻ disebut?</h2>
+    <input type="text" id="q9" placeholder="Masukkan jawaban">
+    <button onclick="checkAnswer(9, 'basa')">Check</button>
+    <p id="result9"></p>
+</div>
+
+<div class="quiz-card">
+    <h2>🔟 Apa rumus kimia amonia?</h2>
+    <input type="text" id="q10" placeholder="Masukkan jawaban">
+    <button onclick="checkAnswer(10, 'NH3')">Check</button>
+    <p id="result10"></p>
+</div>
+
+<div class="quiz-card">
+    <h2>1️⃣1️⃣ Sebutkan contoh senyawa ion!</h2>
+    <input type="text" id="q11" placeholder="Contoh: NaCl">
+    <button onclick="checkAnswer(11, 'NaCl')">Check</button>
+    <p id="result11"></p>
+</div>
+
+<div class="quiz-card">
+    <h2>1️⃣2️⃣ Apa rumus kimia asam klorida?</h2>
+    <input type="text" id="q12" placeholder="Masukkan jawaban">
+    <button onclick="checkAnswer(12, 'HCl')">Check</button>
+    <p id="result12"></p>
+</div>
+
+<div class="quiz-card">
+    <h2>1️⃣3️⃣ Senyawa organik mengandung unsur apa?</h2>
+    <input type="text" id="q13" placeholder="Masukkan jawaban">
+    <button onclick="checkAnswer(13, 'Karbon')">Check</button>
+    <p id="result13"></p>
+</div>
+
+<div class="quiz-card">
+    <h2>1️⃣4️⃣ Titik leleh termasuk sifat fisik atau kimia?</h2>
+    <input type="text" id="q14" placeholder="Masukkan jawaban">
+    <button onclick="checkAnswer(14, 'fisik')">Check</button>
+    <p id="result14"></p>
+</div>
+
+<div class="quiz-card">
+    <h2>1️⃣5️⃣ Reaksi antara asam dan basa disebut?</h2>
+    <input type="text" id="q15" placeholder="Masukkan jawaban">
+    <button onclick="checkAnswer(15, 'netralisasi')">Check</button>
+    <p id="result15"></p>
+</div>
+<div class="score-box">
+    <button onclick="calculateScore()">Lihat Skor</button>
+    <h2 id="finalScore"></h2>
+</div>
+</main>
+<script>
+
+let score = 0;
+let answered = {};
+
+function checkAnswer(num, correctAnswer){
+    const input = document.getElementById("q"+num);
+    const result = document.getElementById("result"+num);
+    const userAnswer = input.value.trim(); // ❌ HAPUS toLowerCase()
+
+    if(answered[num]) return;
+
+    if(userAnswer === correctAnswer){
+        result.textContent = "Benar!";
+        result.className = "correct";
+        score++;
+    } else {
+        result.textContent = "Salah! Jawaban benar: " + correctAnswer;
+        result.className = "incorrect";
+    }
+
+    answered[num] = true;
+}
+
+function calculateScore(){
+    document.getElementById("finalScore").textContent = 
+        "Skor Kamu: " + score + " dari 15 soal";
+}
+
+</script>
+</body>
+</html>

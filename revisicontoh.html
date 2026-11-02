@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Interaktif Senyawa Kimia</title>
+<style>
+:root{--cream:#fbf7f3;--ink:#202a35;--blue:#183b60;--yellow:#ffe65a;--muted:#687384;--teal:#56bdb8}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Segoe UI",Arial,sans-serif;background:var(--cream);color:var(--ink);min-height:100vh}
+header{width:min(1160px,92%);margin:auto;padding:22px 0 12px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{font-size:1.15rem;font-weight:900;color:var(--ink);text-decoration:none;letter-spacing:-.5px}
+.brand span{margin-right:8px}
+nav{display:flex;gap:25px;flex-wrap:wrap}
+nav a{color:#526071;text-decoration:none;font-size:.92rem;font-weight:700;transition:.2s}
+nav a:hover,nav a.active{color:#dba600}
+.container{width:min(1080px,92%);margin:0 auto;padding:28px 0 70px}
+.page-intro{display:flex;justify-content:space-between;align-items:flex-end;gap:25px;margin-bottom:28px}
+.eyebrow{display:inline-block;background:var(--yellow);border:2px solid var(--ink);border-radius:999px;padding:7px 17px;box-shadow:3px 3px 0 var(--ink);font-size:.72rem;font-weight:900;margin-bottom:17px}
+h1{font-size:clamp(2rem,4vw,3rem);line-height:1.1;letter-spacing:-1.5px;color:var(--blue);font-weight:950;margin:0}
+h1 span{color:#ffdf35;-webkit-text-stroke:1px var(--ink);text-shadow:2px 3px 0 var(--ink)}
+.page-intro p{max-width:650px;color:var(--muted);font-size:.96rem;line-height:1.8;margin:14px 0 0}
+.lab-stamp{width:100px;height:100px;flex:0 0 100px;border:2px solid var(--ink);border-radius:50%;display:grid;place-items:center;background:#fff;box-shadow:4px 5px 0 var(--ink);font-size:2.5rem;transform:rotate(8deg)}
+.panel{background:#fff;border:2px solid var(--ink);border-radius:21px;padding:23px 24px;margin:19px 0;box-shadow:4px 5px 0 var(--ink)}
+.panel h2{font-size:1.22rem;color:var(--blue);margin:0 0 8px;letter-spacing:-.3px}
+.panel>p{color:var(--muted);font-size:.9rem;line-height:1.7;margin:0 0 15px}
+.elements{display:grid;grid-template-columns:repeat(auto-fit,minmax(105px,1fr));gap:12px;margin-top:17px}
+.element{min-height:105px;padding:14px 8px;border-radius:15px;text-align:center;cursor:grab;background:#f7f5f1;border:1.5px solid #cbd1d8;user-select:none;transition:.2s;color:var(--ink)}
+.element:hover{transform:translateY(-4px);border-color:#d7ad22;box-shadow:0 5px 0 rgba(32,42,53,.12)}
+.element:active{cursor:grabbing}
+.symbol{font-size:29px;font-weight:900;color:#168b9d}
+.element small{display:block;margin-top:6px;color:#647080;font-size:.75rem}
+.drop-area{min-height:155px;border:2px dashed #d8b72e;border-radius:17px;padding:16px;display:flex;flex-wrap:wrap;align-content:flex-start;align-items:flex-start;gap:11px;background:#fffdf5;transition:.2s}
+.drop-area:empty{align-items:center}
+.drop-area .message{width:100%;align-self:center;text-align:center}
+.message{color:var(--muted);line-height:1.65;font-size:.9rem}
+.atom{width:76px;min-height:76px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-direction:column;background:#e5f5f4;border:2px solid var(--teal);color:var(--ink);cursor:pointer;font-weight:700;transition:.2s}
+.atom:hover{transform:scale(1.06);border-color:#d7ad22}
+.atom span{font-size:22px;color:#168b9d}
+.atom small{font-size:10px;color:#5d6876;text-align:center;padding:0 3px}
+.buttons{display:flex;flex-wrap:wrap;gap:12px;margin-top:17px}
+button{border:2px solid var(--ink);border-radius:999px;padding:12px 21px;cursor:pointer;font-weight:800;font-size:.88rem;transition:.2s}
+.create{background:var(--yellow);color:var(--ink);box-shadow:3px 3px 0 var(--ink)}
+.create:hover{transform:translateY(-2px);box-shadow:4px 5px 0 var(--ink)}
+.reset{background:#fff;color:var(--ink)}
+.reset:hover{background:#f5eee4;transform:translateY(-2px)}
+.result{background:#fbf8f3;border:1.5px solid #e0d9d0;border-radius:16px;padding:20px;margin-top:15px;min-height:100px}
+.formula{font-size:clamp(2rem,5vw,2.7rem);font-weight:950;color:#168b9d;letter-spacing:1px}
+.result h3{color:var(--blue);margin:8px 0}
+.result .message{margin:5px 0}
+@media(max-width:720px){header{align-items:flex-start;flex-direction:column;padding:20px 0 10px}nav{gap:12px 19px}.page-intro{align-items:flex-start}.lab-stamp{display:none}.container{padding-top:22px}}
+@media(max-width:520px){.panel{padding:18px 16px}.elements{grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}.element{min-height:88px}.symbol{font-size:25px}.buttons button{width:100%}}
+</style>
+</head>
+<body>
+<header>
+  <a class="brand" href="Beranda.html"><span>🧪</span>Senyawa Kimia</a>
+  <nav aria-label="Navigasi utama">
+    <a href="Beranda.html">Beranda</a>
+    <a href="Jenis.html">Jenis</a>
+    <a href="sifat.html">Sifat</a>
+    <a class="active" href="revisicontoh.html">Contoh</a>
+    <a href="quiz.html">Quiz</a>
+  </nav>
+</header>
+
+<main class="container">
+  <section class="page-intro">
+    <div>
+      <span class="eyebrow">LABORATORIUM INTERAKTIF</span>
+      <h1>Yuk, <span>rangkai</span> senyawa<br>kimia sendiri!</h1>
+      <p>Pilih unsur-unsur yang tersedia, susun di wadah reaksi, lalu lihat senyawa apa yang berhasil kamu temukan. Coba berbagai kombinasi dan belajar sambil bereksperimen.</p>
+    </div>
+    <div class="lab-stamp" aria-hidden="true">⚗️</div>
+  </section>
+
+  <section class="panel">
+    <h2>01 · Pilih Unsur Kimia</h2>
+    <p>Klik unsur untuk menambahkannya ke dalam wadah. Kamu boleh memilih unsur yang sama berkali-kali.</p>
+    <div class="elements" id="elements"></div>
+  </section>
+
+  <section class="panel">
+    <h2>02 · Wadah Reaksi</h2>
+    <p>Unsur yang kamu pilih akan muncul di area ini. Klik atom yang sudah dipilih untuk menghapusnya satu per satu.</p>
+    <div class="drop-area" id="dropArea"
+         ondragover="event.preventDefault()"
+         ondrop="dropElement(event)">
+      <span class="message" id="emptyText">Pilih atau seret unsur ke area ini.</span>
+    </div>
+    <div class="buttons">
+      <button class="create" onclick="checkCompound()">Bentuk Senyawa&nbsp; ✨</button>
+      <button class="reset" onclick="resetLab()">Hapus Semua</button>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>03 · Hasil Percobaan</h2>
+    <p>Hasil senyawa akan ditampilkan setelah kamu menekan tombol Bentuk Senyawa.</p>
+    <div class="result" id="result">
+      <p class="message">Hasil senyawa akan muncul di sini setelah kamu menekan tombol Bentuk Senyawa.</p>
+    </div>
+  </section>
+</main>
+
+<script>
+
+const elements = [
+    {symbol:"H", name:"Hidrogen"},
+    {symbol:"O", name:"Oksigen"},
+    {symbol:"C", name:"Karbon"},
+    {symbol:"Na", name:"Natrium"},
+    {symbol:"Cl", name:"Klor"},
+    {symbol:"N", name:"Nitrogen"},
+    {symbol:"S", name:"Sulfur"},
+    {symbol:"Ca", name:"Kalsium"},
+    {symbol:"K", name:"Kalium"},
+    {symbol:"Mg", name:"Magnesium"},
+    {symbol:"Al", name:"Aluminium"},
+    {symbol:"P", name:"Fosfor"},
+    {symbol:"Fe", name:"Besi"},
+    {symbol:"Cu", name:"Tembaga"}
+];
+
+let selected = [];
+
+const compounds = [
+    {
+        formula:"HNO2",
+        name:"Asam nitrit",
+        counts:{H:1, N:1, O:2}
+    },
+    {
+        formula:"HNO3",
+        name:"Asam nitrat",
+        counts:{H:1, N:1, O:3}
+    },
+    {
+        formula:"H2SO4",
+        name:"Asam sulfat",
+        counts:{H:2, S:1, O:4}
+    },
+    {
+        formula:"H2SO3",
+        name:"Asam sulfit",
+        counts:{H:2, S:1, O:3}
+    },
+    {
+        formula:"H3PO4",
+        name:"Asam fosfat",
+        counts:{H:3, P:1, O:4}
+    },
+    {
+        formula:"H2CO3",
+        name:"Asam karbonat",
+        counts:{H:2, C:1, O:3}
+    },
+    {
+        formula:"H2O",
+        name:"Air",
+        counts:{H:2, O:1}
+    },
+    {
+        formula:"NH3",
+        name:"Amonia",
+        counts:{N:1, H:3}
+    },
+    {
+        formula:"CO2",
+        name:"Karbon dioksida",
+        counts:{C:1, O:2}
+    },
+    {
+        formula:"CO",
+        name:"Karbon monoksida",
+        counts:{C:1, O:1}
+    },
+    {
+        formula:"CH4",
+        name:"Metana",
+        counts:{C:1, H:4}
+    },
+    {
+        formula:"H2S",
+        name:"Hidrogen sulfida",
+        counts:{H:2, S:1}
+    },
+    {
+        formula:"HCl",
+        name:"Asam klorida",
+        counts:{H:1, Cl:1}
+    },
+    {
+        formula:"NaOH",
+        name:"Natrium hidroksida",
+        counts:{Na:1, O:1, H:1}
+    },
+    {
+        formula:"KOH",
+        name:"Kalium hidroksida",
+        counts:{K:1, O:1, H:1}
+    },
+    {
+        formula:"Ca(OH)2",
+        name:"Kalsium hidroksida",
+        counts:{Ca:1, O:2, H:2}
+    },
+    {
+        formula:"Mg(OH)2",
+        name:"Magnesium hidroksida",
+        counts:{Mg:1, O:2, H:2}
+    },
+    {
+        formula:"Al(OH)3",
+        name:"Aluminium hidroksida",
+        counts:{Al:1, O:3, H:3}
+    },
+    {
+        formula:"CaCO3",
+        name:"Kalsium karbonat",
+        counts:{Ca:1, C:1, O:3}
+    },
+    {
+        formula:"Na2CO3",
+        name:"Natrium karbonat",
+        counts:{Na:2, C:1, O:3}
+    },
+    {
+        formula:"NaHCO3",
+        name:"Natrium bikarbonat",
+        counts:{Na:1, H:1, C:1, O:3}
+    },
+    {
+        formula:"KNO3",
+        name:"Kalium nitrat",
+        counts:{K:1, N:1, O:3}
+    },
+    {
+        formula:"NaNO3",
+        name:"Natrium nitrat",
+        counts:{Na:1, N:1, O:3}
+    },
+    {
+        formula:"Ca(NO3)2",
+        name:"Kalsium nitrat",
+        counts:{Ca:1, N:2, O:6}
+    },
+    {
+        formula:"Na2SO4",
+        name:"Natrium sulfat",
+        counts:{Na:2, S:1, O:4}
+    },
+    {
+        formula:"CaSO4",
+        name:"Kalsium sulfat",
+        counts:{Ca:1, S:1, O:4}
+    },
+    {
+        formula:"MgSO4",
+        name:"Magnesium sulfat",
+        counts:{Mg:1, S:1, O:4}
+    },
+    {
+        formula:"CuSO4",
+        name:"Tembaga(II) sulfat",
+        counts:{Cu:1, S:1, O:4}
+    },
+    {
+        formula:"Al2(SO4)3",
+        name:"Aluminium sulfat",
+        counts:{Al:2, S:3, O:12}
+    },
+    {
+        formula:"NaCl",
+        name:"Natrium Klorida",
+        counts:{Na:1, Cl:1}
+    }
+];
+
+// Membuat tombol unsur
+const elementContainer = document.getElementById("elements");
+
+elements.forEach(element => {
+    const div = document.createElement("div");
+
+    div.className = "element";
+    div.draggable = true;
+
+    div.innerHTML = `
+        <div class="symbol">${element.symbol}</div>
+        <small>${element.name}</small>
+    `;
+
+    div.addEventListener("click", () => {
+        addElement(element.symbol);
+    });
+
+    div.addEventListener("dragstart", event => {
+        event.dataTransfer.setData("symbol", element.symbol);
+    });
+
+    elementContainer.appendChild(div);
+});
+
+// Menambahkan unsur
+function addElement(symbol) {
+    selected.push(symbol);
+    renderSelected();
+}
+
+// Drag and drop
+function dropElement(event) {
+    event.preventDefault();
+
+    const symbol = event.dataTransfer.getData("symbol");
+
+    if (elements.some(element => element.symbol === symbol)) {
+        addElement(symbol);
+    }
+}
+
+// Menampilkan unsur yang dipilih
+function renderSelected() {
+    const area = document.getElementById("dropArea");
+    area.innerHTML = "";
+
+    if (selected.length === 0) {
+        area.innerHTML = `
+            <span class="message">
+                Pilih atau seret unsur ke area ini.
+            </span>
+        `;
+        return;
+    }
+
+    selected.forEach((symbol, index) => {
+        const element = elements.find(item => item.symbol === symbol);
+
+        const atom = document.createElement("div");
+        atom.className = "atom";
+
+        atom.innerHTML = `
+            <span>${symbol}</span>
+            <small>${element.name}</small>
+        `;
+
+        atom.title = "Klik untuk menghapus unsur ini";
+
+        atom.onclick = () => {
+            selected.splice(index, 1);
+            renderSelected();
+        };
+
+        area.appendChild(atom);
+    });
+}
+
+// Menghitung jumlah setiap jenis atom
+function getAtomCounts() {
+    const counts = {};
+
+    selected.forEach(symbol => {
+        counts[symbol] = (counts[symbol] || 0) + 1;
+    });
+
+    return counts;
+}
+
+// Membandingkan jumlah atom secara tepat
+function sameCounts(a, b) {
+    const symbolsA = Object.keys(a).sort();
+    const symbolsB = Object.keys(b).sort();
+
+    if (symbolsA.length !== symbolsB.length) {
+        return false;
+    }
+
+    return symbolsA.every(symbol =>
+        a[symbol] === b[symbol]
+    );
+}
+
+// Membentuk senyawa
+function checkCompound() {
+    const result = document.getElementById("result");
+
+    if (selected.length === 0) {
+        result.innerHTML = `
+            <p class="message">
+                Pilih unsur terlebih dahulu!
+            </p>
+        `;
+        return;
+    }
+
+    const counts = getAtomCounts();
+
+    // Cari senyawa dengan jumlah atom yang sama persis
+    const compound = compounds.find(item =>
+        sameCounts(counts, item.counts)
+    );
+
+    if (compound) {
+        result.innerHTML = `
+            <div class="formula">${compound.formula}</div>
+            <h3>${compound.name}</h3>
+            <p class="message">
+                Senyawa berhasil ditemukan!
+                Jumlah atom yang dipilih sesuai dengan rumus senyawa.
+            </p>
+            <p>${describeCounts(counts)}</p>
+        `;
+    } else {
+        result.innerHTML = `
+            <h3>Senyawa belum tersedia</h3>
+            <p class="message">
+                Kombinasi unsur ini belum ada dalam daftar senyawa
+                yang dikenali oleh program.
+            </p>
+            <p>${describeCounts(counts)}</p>
+        `;
+    }
+}
+
+// Menampilkan rincian atom
+function describeCounts(counts) {
+    return Object.entries(counts)
+        .map(([symbol, amount]) => `${symbol}: ${amount} atom`)
+        .join(" | ");
+}
+
+// Menghapus semua unsur
+function resetLab() {
+    selected = [];
+    renderSelected();
+
+    document.getElementById("result").innerHTML = `
+        <p class="message">
+            Hasil percobaan akan muncul di sini.
+        </p>
+    `;
+}
+
+</script>
+</body>
+</html>

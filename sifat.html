@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sifat-Sifat Senyawa Kimia</title>
+<style>
+:root{--cream:#fbf7f3;--ink:#202a35;--blue:#183b60;--yellow:#ffe65a;--muted:#687384;--coral:#ff654f}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Segoe UI",Arial,sans-serif;background:var(--cream);color:var(--ink);min-height:100vh}
+header{width:min(1160px,92%);margin:auto;padding:22px 0;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{font-size:1.15rem;font-weight:900;color:var(--ink);text-decoration:none;letter-spacing:-.5px}
+.brand span{margin-right:8px}
+nav{display:flex;gap:25px;flex-wrap:wrap}
+nav a{color:#526071;text-decoration:none;font-size:.92rem;font-weight:700;transition:.2s}
+nav a:hover,nav a.active{color:#dba600}
+main{width:min(1080px,92%);margin:0 auto;padding:34px 0 76px}
+.intro{display:grid;grid-template-columns:1fr auto;align-items:end;gap:24px;margin-bottom:30px}
+.eyebrow{display:inline-block;background:var(--yellow);border:2px solid var(--ink);border-radius:999px;padding:7px 17px;box-shadow:3px 3px 0 var(--ink);font-size:.72rem;font-weight:900;margin-bottom:18px}
+h1{font-size:clamp(2.1rem,4vw,3.2rem);line-height:1.1;letter-spacing:-1.7px;color:var(--blue);font-weight:950}
+h1 span{color:#ffdf35;-webkit-text-stroke:1px var(--ink);text-shadow:2px 3px 0 var(--ink)}
+.lead{max-width:610px;color:var(--muted);font-size:.98rem;line-height:1.8;margin-top:16px}
+.stamp{width:116px;height:116px;border:2px solid var(--ink);border-radius:50%;display:grid;place-items:center;background:#fff;box-shadow:4px 5px 0 var(--ink);font-size:2.8rem;transform:rotate(8deg)}
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:stretch}
+.card{background:#fff;border:2px solid var(--ink);border-radius:22px;padding:25px 25px 23px;box-shadow:4px 5px 0 var(--ink)}
+.card-top{display:flex;align-items:center;gap:13px;margin-bottom:15px}
+.icon{width:48px;height:48px;border-radius:15px;background:#fff0c1;display:grid;place-items:center;font-size:1.55rem;border:1.5px solid var(--ink)}
+.card:nth-child(2) .icon{background:#dff4f3}
+.card h2{font-size:1.35rem;color:var(--blue);letter-spacing:-.5px}
+.card .desc{font-size:.92rem;line-height:1.75;color:var(--muted);margin-bottom:18px}
+ul{list-style:none;display:grid;gap:10px}
+li{position:relative;padding:10px 12px 10px 35px;border-radius:12px;background:#faf8f5;color:#354253;font-size:.87rem;line-height:1.55}
+li:before{content:"";position:absolute;left:14px;top:17px;width:9px;height:9px;border-radius:50%;background:#f1c83e;border:1px solid var(--ink)}
+.card:nth-child(2) li:before{background:#64c5c0}
+li strong{color:#1f3043}
+.summary{margin-top:24px;background:#fff6c9;border:2px solid var(--ink);border-radius:20px;padding:20px 24px;box-shadow:4px 5px 0 var(--ink);display:flex;gap:16px;align-items:flex-start}
+.summary-icon{font-size:1.7rem;line-height:1}
+.summary h2{font-size:1.1rem;color:var(--blue);margin-bottom:6px}
+.summary p{color:#4f5b69;font-size:.91rem;line-height:1.75}
+@media(max-width:760px){header{align-items:flex-start;flex-direction:column;padding:20px 0 10px}nav{gap:12px 19px}.intro{grid-template-columns:1fr}.stamp{display:none}.cards{grid-template-columns:1fr}}
+@media(max-width:480px){main{padding-top:25px}.card{padding:20px}.lead{font-size:.92rem}}
+</style>
+</head>
+<body>
+<header>
+  <a class="brand" href="Beranda.html"><span>🧪</span>Senyawa Kimia</a>
+  <nav aria-label="Navigasi utama">
+    <a href="Beranda.html">Beranda</a>
+    <a href="Jenis.html">Jenis</a>
+    <a class="active" href="sifat.html">Sifat</a>
+    <a href="revisicontoh.html">Contoh</a>
+    <a href="quiz.html">Quiz</a>
+  </nav>
+</header>
+<main>
+  <section class="intro">
+    <div>
+      <span class="eyebrow">MATERI PEMBELAJARAN</span>
+      <h1>Mengenal <span>sifat-sifat</span><br>senyawa kimia</h1>
+      <p class="lead">Setiap senyawa memiliki karakteristik yang membuatnya unik. Yuk, kenali dua kelompok sifat senyawa: sifat fisik dan sifat kimia.</p>
+    </div>
+    <div class="stamp" aria-hidden="true">🔬</div>
+  </section>
+
+  <section class="cards">
+    <article class="card">
+      <div class="card-top">
+        <div class="icon">💧</div>
+        <h2>01 · Sifat Fisik</h2>
+      </div>
+      <p class="desc">Sifat fisik adalah sifat yang dapat diamati tanpa mengubah zat tersebut menjadi zat baru.</p>
+      <ul>
+        <li><strong>Wujud zat:</strong> padat, cair, atau gas</li>
+        <li><strong>Warna:</strong> tampilan visual suatu senyawa</li>
+        <li><strong>Bau:</strong> aroma khas yang dimiliki zat</li>
+        <li><strong>Titik leleh:</strong> suhu saat zat padat berubah menjadi cair</li>
+        <li><strong>Titik didih:</strong> suhu saat zat cair berubah menjadi gas</li>
+        <li><strong>Massa jenis (densitas):</strong> perbandingan massa terhadap volume</li>
+        <li><strong>Kelarutan:</strong> kemampuan zat larut dalam pelarut</li>
+        <li><strong>Daya hantar listrik:</strong> kemampuan menghantarkan arus listrik</li>
+        <li><strong>Kekerasan:</strong> tingkat ketahanan terhadap goresan atau tekanan</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <div class="card-top">
+        <div class="icon">⚗️</div>
+        <h2>02 · Sifat Kimia</h2>
+      </div>
+      <p class="desc">Sifat kimia adalah sifat yang berkaitan dengan kemampuan suatu zat untuk bereaksi dan berubah menjadi zat baru.</p>
+      <ul>
+        <li><strong>Reaktivitas:</strong> kemampuan zat untuk bereaksi dengan zat lain</li>
+        <li><strong>Stabilitas:</strong> kemampuan zat mempertahankan strukturnya</li>
+        <li><strong>Kemudahan terbakar:</strong> kemampuan bereaksi dengan oksigen</li>
+        <li><strong>Keasaman atau kebasaan:</strong> sifat asam atau basa suatu zat</li>
+        <li><strong>Korosi:</strong> kemampuan merusak atau mengoksidasi bahan lain</li>
+      </ul>
+    </article>
+  </section>
+
+  <section class="summary">
+    <div class="summary-icon">✨</div>
+    <div>
+      <h2>Kesimpulan</h2>
+      <p>Sifat fisik dapat diamati tanpa mengubah zat, sedangkan sifat kimia melibatkan perubahan zat menjadi zat baru melalui reaksi kimia. Memahami sifat-sifat senyawa membantu kita mengetahui bagaimana zat tersebut digunakan dalam kehidupan sehari-hari.</p>
+    </div>
+  </section>
+</main>
+</body>
+</html>

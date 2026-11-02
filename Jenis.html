@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jenis-Jenis Senyawa Kimia</title>
+<style>
+:root{--cream:#fbf7f3;--ink:#202a35;--blue:#183b60;--yellow:#ffe65a;--muted:#687384}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Segoe UI",Arial,sans-serif;background:var(--cream);color:var(--ink);min-height:100vh}
+header{width:min(1160px,92%);margin:auto;padding:22px 0;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{font-size:1.15rem;font-weight:900;color:var(--ink);text-decoration:none;letter-spacing:-.5px}
+.brand span{margin-right:8px}
+nav{display:flex;gap:25px;flex-wrap:wrap}
+nav a{color:#526071;text-decoration:none;font-size:.92rem;font-weight:700;transition:.2s}
+nav a:hover,nav a.active{color:#dba600}
+main{width:min(1080px,92%);margin:0 auto;padding:34px 0 76px}
+.intro{display:flex;align-items:flex-end;justify-content:space-between;gap:25px;margin-bottom:28px}
+.eyebrow{display:inline-block;background:var(--yellow);border:2px solid var(--ink);border-radius:999px;padding:7px 17px;box-shadow:3px 3px 0 var(--ink);font-size:.72rem;font-weight:900;margin-bottom:18px}
+h1{font-size:clamp(2.1rem,4vw,3.2rem);line-height:1.1;letter-spacing:-1.7px;color:var(--blue);font-weight:950}
+h1 span{color:#ffdf35;-webkit-text-stroke:1px var(--ink);text-shadow:2px 3px 0 var(--ink)}
+.lead{max-width:650px;color:var(--muted);font-size:.98rem;line-height:1.8;margin-top:15px}
+.stamp{width:105px;height:105px;flex:0 0 105px;border:2px solid var(--ink);border-radius:50%;display:grid;place-items:center;background:#fff;box-shadow:4px 5px 0 var(--ink);font-size:2.6rem;transform:rotate(8deg)}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:19px}
+.card{background:#fff;border:2px solid var(--ink);border-radius:21px;padding:21px 22px 20px;box-shadow:4px 5px 0 var(--ink);min-height:220px}
+.card-head{display:flex;align-items:center;gap:13px;margin-bottom:13px}
+.icon{width:46px;height:46px;flex:0 0 46px;border-radius:14px;background:#fff0c1;border:1.5px solid var(--ink);display:grid;place-items:center;font-size:1.45rem}
+.card:nth-child(2) .icon{background:#dff4f3}
+.card:nth-child(3) .icon{background:#ffe2dc}
+.card:nth-child(4) .icon{background:#e8e3ff}
+.card:nth-child(5) .icon{background:#e4efdc}
+.card h2{font-size:1.2rem;letter-spacing:-.4px;color:var(--blue)}
+.card p{font-size:.88rem;line-height:1.7;color:#667181;margin-bottom:9px}
+.example{display:inline-block;background:#fff6c9;border:1px solid #e4ca61;border-radius:8px;padding:5px 9px;color:#344052;font-size:.8rem;margin:2px 0 12px}
+ul{list-style:none;display:grid;gap:7px;margin-top:3px}
+li{position:relative;padding-left:19px;color:#354253;font-size:.83rem;line-height:1.55}
+li:before{content:"";position:absolute;left:2px;top:7px;width:7px;height:7px;border-radius:50%;background:#edc63c;border:1px solid var(--ink)}
+.card:nth-child(2) li:before{background:#64c5c0}
+.card:nth-child(3) li:before{background:#ff8c75}
+.card:nth-child(4) li:before{background:#a99ae9}
+.card:nth-child(5) li:before{background:#91b87e}
+.card:last-child{grid-column:1/-1;min-height:0}
+@media(max-width:700px){header{align-items:flex-start;flex-direction:column;padding:20px 0 10px}nav{gap:12px 19px}.stamp{display:none}.grid{grid-template-columns:1fr}.card:last-child{grid-column:auto}}
+@media(max-width:480px){main{padding-top:25px}.card{padding:19px}.lead{font-size:.92rem}}
+</style>
+</head>
+<body>
+<header>
+  <a class="brand" href="Beranda.html"><span>🧪</span>Senyawa Kimia</a>
+  <nav aria-label="Navigasi utama">
+    <a href="Beranda.html">Beranda</a>
+    <a class="active" href="Jenis.html">Jenis</a>
+    <a href="sifat.html">Sifat</a>
+    <a href="revisicontoh.html">Contoh</a>
+    <a href="quiz.html">Quiz</a>
+  </nav>
+</header>
+<main>
+  <section class="intro">
+    <div>
+      <span class="eyebrow">MATERI PEMBELAJARAN</span>
+      <h1>Kenali berbagai <span>jenis</span><br>senyawa kimia</h1>
+      <p class="lead">Senyawa kimia dapat dikelompokkan berdasarkan jenis ikatan dan karakteristiknya. Berikut lima jenis senyawa beserta contoh dan ciri-cirinya.</p>
+    </div>
+    <div class="stamp" aria-hidden="true">⚗️</div>
+  </section>
+
+  <section class="grid">
+    <article class="card">
+      <div class="card-head"><div class="icon">🧂</div><h2>01 · Senyawa Ion</h2></div>
+      <p>Senyawa ion terbentuk dari perpindahan elektron antara logam dan non-logam sehingga menghasilkan ion positif dan ion negatif.</p>
+      <span class="example"><strong>Contoh:</strong> NaCl, KBr, MgO</span>
+      <ul><li>Titik leleh tinggi</li><li>Mudah larut dalam air</li><li>Menghantarkan listrik dalam bentuk larutan atau lelehan</li></ul>
+    </article>
+
+    <article class="card">
+      <div class="card-head"><div class="icon">💧</div><h2>02 · Senyawa Kovalen</h2></div>
+      <p>Senyawa kovalen terbentuk karena pemakaian bersama pasangan elektron antar atom non-logam.</p>
+      <span class="example"><strong>Contoh:</strong> H₂O, CO₂, NH₃</span>
+      <ul><li>Titik leleh lebih rendah dibanding ion</li><li>Tidak menghantarkan listrik</li><li>Banyak yang berbentuk gas atau cair</li></ul>
+    </article>
+
+    <article class="card">
+      <div class="card-head"><div class="icon">🍋</div><h2>03 · Senyawa Asam</h2></div>
+      <p>Senyawa asam adalah senyawa yang menghasilkan ion H⁺ ketika dilarutkan dalam air.</p>
+      <span class="example"><strong>Contoh:</strong> HCl, H₂SO₄, HNO₃</span>
+      <ul><li>Rasanya masam</li><li>Mengubah lakmus biru menjadi merah</li><li>Bereaksi dengan basa menghasilkan garam dan air</li></ul>
+    </article>
+
+    <article class="card">
+      <div class="card-head"><div class="icon">🫧</div><h2>04 · Senyawa Basa</h2></div>
+      <p>Senyawa basa menghasilkan ion OH⁻ dalam air.</p>
+      <span class="example"><strong>Contoh:</strong> NaOH, KOH, Ca(OH)₂</span>
+      <ul><li>Terasa licin</li><li>Mengubah lakmus merah menjadi biru</li><li>Menetralkan asam</li></ul>
+    </article>
+
+    <article class="card">
+      <div class="card-head"><div class="icon">🌿</div><h2>05 · Senyawa Organik</h2></div>
+      <p>Senyawa organik adalah senyawa yang mengandung unsur karbon (C) dan biasanya berikatan dengan hidrogen.</p>
+      <span class="example"><strong>Contoh:</strong> CH₄, C₂H₅OH, glukosa</span>
+      <ul><li>Banyak ditemukan dalam makhluk hidup</li><li>Strukturnya kompleks</li><li>Umumnya memiliki titik leleh rendah</li></ul>
+    </article>
+  </section>
+</main>
+</body>
+</html>
